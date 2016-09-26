@@ -40,3 +40,39 @@ function getTeammates( $home = -1){
 
 }
 
+function getImagesAttributes( $type, $id ){
+
+    $attributes = array();
+    
+    if($type==='thumb'):
+        $attributes['alt'] = get_post_meta($id , '_wp_attachment_image_alt', true);
+        
+        $attributes['url'] = wp_get_attachment_image_src($id,'full')[0];
+      
+        $attributes['description'] = get_post($id)->post_content;
+    
+    endif;
+    
+    return $attributes;
+}
+
+function getAcfImages ($image){
+    $attr= array();
+
+    $imageID = $image['ID'];
+    $attr['alt'] = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+    $attr['description'] = $image['description'];
+    $attr['url'] = $image['url'];
+    
+    return $attr;
+}
+
+function getReviews(){
+    $reviews = get_posts(array(
+        'post_type' => 'review',
+        'posts_per_page' => -1,
+        'post_status' => 'publish'
+    ));
+
+    return ($reviews)? $reviews : null;
+}

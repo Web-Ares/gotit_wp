@@ -55,19 +55,24 @@ function add_js()
 
     wp_deregister_script('jquery');
 
-    wp_register_script('jquery',get_template_directory_uri().'/dist/js/vendors/jquery-2.1.4.min.js');
+    wp_register_script('jquery',get_template_directory_uri().'/dist/js/vendors/jquery-2.2.1.min.js');
     wp_enqueue_script('jquery');
 
+    wp_enqueue_style('swiper_css', get_template_directory_uri().'/dist/css/swiper.min.css');
+    wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');
+
+    wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
+    wp_enqueue_script('swiper_js');
+
+    wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+    wp_enqueue_script('main');
 
     if (is_page_template('page-home.php')){
 
-        wp_enqueue_style('home', get_template_directory_uri().'/dist/css/main_page.css');
-        wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
-        wp_enqueue_script('swiper');
-        wp_register_script('script-nicescroll',get_template_directory_uri().'/dist/js/vendors/jquery.nicescroll.min.js');
-        wp_enqueue_script('script-nicescroll');
+        wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
+        wp_enqueue_script('google_cart');
     }
-    
+
     if(is_singular('project')){
         wp_enqueue_style('home', get_template_directory_uri().'/dist/css/project_page.css');
         wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
@@ -76,12 +81,8 @@ function add_js()
         wp_enqueue_script('script-nicescroll');
         wp_register_script('fancy',get_template_directory_uri().'/dist/js/vendors/fancybox.js');
         wp_enqueue_script('fancy');
-
-
     }
 
-    wp_register_script('app',get_template_directory_uri().'/dist/js/app.min.js');
-    wp_enqueue_script('app');
 }
 wp_enqueue_style('style', get_template_directory_uri().'/style.css');
 

@@ -91,7 +91,7 @@ function custom_post_type()
 
     $args = array(
         'labels' => $labels,
-        'supports' => array('title'),
+        'supports' => array('title','thumbnail'),
         'hierarchical' => false,
         'public' => true,
         'show_ui' => true,
@@ -108,5 +108,39 @@ function custom_post_type()
     );
 
     register_post_type('team', $args);
+
+    $labels = array(
+
+        'name' => 'Reviews',
+        'singular_name' => 'Review',
+        'menu_name' => 'Reviews',
+        'all_items' => 'All Reviews',
+        'view_item' => 'View Review',
+        'add_new_item' => 'Add Review',
+        'add_new' => 'Add Review',
+        'edit_item' => 'Edit',
+        'update_item' => 'Update',
+        'search_items' => 'Search'
+    );
+
+    $args = array(
+        'labels' => $labels,
+        'supports' => array('title','thumbnail'),
+        'hierarchical' => false,
+        'public' => true,
+        'show_ui' => true,
+        'show_in_menu' => true,
+        'show_in_admin_bar' => true,
+        'can_export' => true,
+        'has_archive' => false,
+        'exclude_from_search' => true,
+        'publicly_queryable' => true,
+        'capability_type' => 'post',
+        'rewrite' => array(
+            'with_front' => true
+        )
+    );
+
+    register_post_type('review', $args);
 
 }

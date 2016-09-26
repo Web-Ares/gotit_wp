@@ -12,10 +12,7 @@
 
                     <!-- contacts__map -->
                     <div class="contacts__map">
-
-                        <div class="contacts__map-google"></div>
-                        <div class="google-map" id="contact-google-map" data-map-lat="40.71146768253324" data-map-lng="-73.97688591796877" data-map-zoom="8"></div>
-
+                        <div class="contacts__map-google" id="contact-google-map" data-map-lat="40.71146768253324" data-map-lng="-73.97688591796877" data-map-zoom="8"></div>
                     </div>
                     <!-- /contacts__map -->
 
@@ -43,7 +40,9 @@
                             </div>
                         </div>
 
-                        <div class="contacts__pulse"></div>
+                        <div class="contacts__pulse">
+                            <div class="contacts__pulse1"></div>
+                        </div>
 
 
                         <p>We are conveniently located in

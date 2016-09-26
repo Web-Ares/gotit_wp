@@ -7,6 +7,9 @@ if($teammates):
 
             <!-- squad -->
             <div class="squad">
+                
+                <div class="squad__disk"></div>
+                
                 <div class="squad__inner">
 
                     <h2 class="site__title site__title_2"><?= ($title = get_field('squad_title_block'))? $title : 'Squad';  ?></h2>

@@ -59,7 +59,7 @@ function add_js()
     wp_enqueue_script('jquery');
 
     wp_enqueue_style('swiper_css', get_template_directory_uri().'/dist/css/swiper.min.css');
-    wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');
+
 
     wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
     wp_enqueue_script('swiper_js');
@@ -67,20 +67,32 @@ function add_js()
     wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
     wp_enqueue_script('main');
 
-    if (is_page_template('page-home.php')){
 
-        wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
-        wp_enqueue_script('google_cart');
+    if(is_page_template(array('page-home.php','page-services.php'))){
+        wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');
     }
 
-    if(is_singular('project')){
-        wp_enqueue_style('home', get_template_directory_uri().'/dist/css/project_page.css');
-        wp_register_script('swiper',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
-        wp_enqueue_script('swiper');
-        wp_register_script('script-nicescroll',get_template_directory_uri().'/dist/js/vendors/jquery.nicescroll.min.js');
-        wp_enqueue_script('script-nicescroll');
-        wp_register_script('fancy',get_template_directory_uri().'/dist/js/vendors/fancybox.js');
-        wp_enqueue_script('fancy');
+    if (is_page_template('page-home.php')){
+
+        wp_enqueue_style('fullpage', get_template_directory_uri().'/dist/css/jquery.fullpage.css');
+
+        wp_register_script('scrolloverflow',get_template_directory_uri().'/dist/js/vendors/scrolloverflow.min.js');
+        wp_enqueue_script('scrolloverflow');
+
+        wp_register_script('fullpage',get_template_directory_uri().'/dist/js/vendors/jquery.fullpage.min.js');
+        wp_enqueue_script('fullpage');
+
+        wp_register_script('device',get_template_directory_uri().'/dist/js/vendors/device.min.js');
+        wp_enqueue_script('device');
+    }
+
+    if(is_singular('service')){
+        wp_enqueue_style('service', get_template_directory_uri().'/dist/css/services-uxui.css');
+    }
+
+    if(is_page_template('page-home.php') || is_singular('service')){
+        wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
+        wp_enqueue_script('google_cart');
     }
 
 }

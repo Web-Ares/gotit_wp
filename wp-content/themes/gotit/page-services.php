@@ -4,66 +4,85 @@
  */
 get_header(); ?>
 
-<div class="site__content">
 
-    <h2 class="site__main-title">
-        Services
-    </h2>
 
-    <?php if($services = getServices()): ?>
-    <!-- expertise -->
-    <div class="expertise expertise_2">
-        <div class="expertise__inner">
+<?php $services = getServices();
+        $backgroundWord = get_field('fill_the_word_for_background');
+        $titlePage = get_the_title();
+?>
 
-            <h1 class="site__title site__title_3 site__content-title"><?php the_title(); ?></h1>
+    <div class="site__content centered">
+    <div>
 
-            <!-- expertise__items -->
-            <div class="expertise__items">
+        <h2 class="site__main-title">
+            <?= ($backgroundWord)? $backgroundWord :  $titlePage; ?>
+        </h2>
 
-                <!-- swiper-container -->
-                <div class="swiper-container">
-                    <div class="swiper-wrapper">
-                        <?php
-                        $tmp = $post;
-                        foreach ($services as $post) {
+        <!-- expertise -->
+        <div class="expertise expertise_2">
+            <div class="expertise__inner">
 
-                            $image = getAcfImages(get_field('choose_the_preview_icon'));
-                        
-                            ?>
+                <h1 class="site__title site__title_3 site__content-title"><?= $titlePage ?></h1>
 
-                            <div class="swiper-slide">
+                <!-- expertise__items -->
+                <div class="expertise__items">
 
-                                <!-- expertise__item -->
-                                <div class="expertise__item">
+                    <!-- swiper-container -->
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper">
+                            <?php if($services): ?>
+                                <!-- swiper-container -->
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
 
-                                    <!-- expertise__pic -->
-                                    <div class="expertise__pic">
+                                        <?php
+                                        $tmp = $post;
+                                        foreach ($services as $post) {
 
-                                        <img src="<?= $image['url'] ?>" width="70" height="66" alt="<?=$image['alt'] ?>" title="<?= $image['description'] ?>">
+                                            $image = getAcfImages(get_field('choose_the_preview_icon'));
+
+                                            ?>
+
+                                            <div class="swiper-slide">
+
+                                                <!-- expertise__item -->
+                                                <a href="<?php the_permalink(); ?>" class="expertise__item">
+
+                                                    <!-- expertise__pic -->
+                                                    <div class="expertise__pic">
+
+                                                        <img src="<?= $image['url'] ?>" width="70" height="66" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+
+                                                    </div>
+                                                    <!-- /expertise__pic -->
+
+                                                    <span><?php the_title(); ?></span>
+
+                                                </a>
+                                                <!-- /expertise__item -->
+
+                                            </div>
+
+                                        <?php }
+                                        $post=$tmp;?>
 
                                     </div>
-                                    <!-- /expertise__pic -->
-
-                                    <span><?php the_title(); ?></span>
-
                                 </div>
-                                <!-- /expertise__item -->
-
-                            </div>
-
-                        <?php }
-                        $post=$tmp;?>
-
+                            <?php endif; ?>
+ 
+                        </div>
                     </div>
+
                 </div>
+                <!-- /expertise__items -->
 
             </div>
-            <!-- /expertise__items -->
-
         </div>
+        <!-- /expertise -->
+
     </div>
-    <!-- /expertise -->
-    <?php endif; ?>
 </div>
+
+
 
 <?php get_footer(); ?>

@@ -2,9 +2,9 @@
 
 
 
-    <div class="swiper-slide">
-    <div class="swiper-slide__content">
-        <div>
+    <div class="slide__content">
+        <div class="slide__content-inner">
+            <div>
 
             <!-- reviews -->
             <div class="reviews">

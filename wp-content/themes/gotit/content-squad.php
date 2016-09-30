@@ -1,9 +1,9 @@
 <?php $teammates = getTeammates(3);
 if($teammates):
 ?>
-    <div class="swiper-slide">
-    <div class="swiper-slide__content">
-        <div>
+    <div class="slide__content">
+        <div class="slide__content-inner">
+            <div>
 
             <!-- squad -->
             <div class="squad">

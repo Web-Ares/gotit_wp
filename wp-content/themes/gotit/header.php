@@ -207,7 +207,7 @@
 
 
 <!-- site -->
-<div class="site">
+<div class="site<?= (!is_front_page())? ' site_inner': '' ; ?>">
 
     <!-- preloader -->
     <div class="preloader">

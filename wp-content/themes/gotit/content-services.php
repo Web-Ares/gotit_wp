@@ -4,9 +4,9 @@
 
 if(!is_null($services)): ?>
 
-    <div class="swiper-slide">
-    <div class="swiper-slide__content">
-        <div>
+    <div class="slide__content">
+        <div class="slide__content-inner">
+            <div>
 
             <!-- expertise -->
             <div class="expertise">
@@ -32,7 +32,7 @@ if(!is_null($services)): ?>
                                             <div class="swiper-slide">
 
                                                 <!-- expertise__item -->
-                                                <div class="expertise__item">
+                                                <a href="<?php the_permalink() ?>" class="expertise__item">
 
                                                     <!-- expertise__pic -->
                                                     <div class="expertise__pic">
@@ -44,7 +44,7 @@ if(!is_null($services)): ?>
 
                                                     <span><?php the_title(); ?></span>
 
-                                                </div>
+                                                </a>
                                                 <!-- /expertise__item -->
 
                                             </div>
@@ -58,11 +58,11 @@ if(!is_null($services)): ?>
                     </div>
                     <!-- /expertise__items -->
 
-                </div>
             </div>
             <!-- /expertise -->
 
+            </div>
         </div>
-</div>
+    </div>
 
 <?php endif; ?>

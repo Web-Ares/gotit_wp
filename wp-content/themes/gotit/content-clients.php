@@ -1,7 +1,7 @@
 <?php if( have_rows('our_clients') ): ?>
 
-    <div class="swiper-slide">
-        <div class="swiper-slide__content">
+    <div class="slide__content">
+        <div class="slide__content-inner">
             <div>
 
                 <!-- our-clients -->

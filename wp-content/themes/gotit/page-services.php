@@ -51,7 +51,7 @@ get_header(); ?>
                                                     <!-- expertise__pic -->
                                                     <div class="expertise__pic">
 
-                                                        <img src="<?= $image['url'] ?>" width="70" height="66" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+                                                        <img src="<?= $image['url'] ?>" width="85" height="75" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
 
                                                     </div>
                                                     <!-- /expertise__pic -->

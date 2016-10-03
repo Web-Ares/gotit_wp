@@ -12,12 +12,12 @@ get_header(); ?>
             <div>
 
                 <!-- main-slider -->
-                <div class="main-slider">
+                <div class="main-slider main-slider_index">
 
                     <!-- swiper-container -->
                     <div class="swiper-container">
                         <div class="swiper-wrapper">
-                            <div class="swiper-slide swiper-slide_vegetable">
+                            <div class="swiper-slide">
 
                                 <div class="vegetables vegetable1 move1">
                                     <img src="<?= DIRECT ?>img/vegetable1.png" alt="">
@@ -74,7 +74,7 @@ get_header(); ?>
                                 <div class="vegetables vegetable3 move3">
                                     <img src="<?= DIRECT ?>img/vegetable3.png" alt="">
                                 </div>
-                                <div class="vegetables vegetable4 move4">
+                                <div class="vegetables vegetable4 move4 vegetable4_1">
                                     <img src="<?= DIRECT ?>img/vegetable1.png" alt="">
                                 </div>
                                 <div class="vegetables vegetable5 move5">

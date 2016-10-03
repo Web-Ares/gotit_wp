@@ -62,7 +62,7 @@ $allServices = getServices();
                                             <!-- expertise__pic -->
                                             <div class="expertise__pic">
 
-                                                <img src="<?= $image['url'] ?>" <?= $image['description'] ?> width="70" height="66" <?= $image['url'] ?>>
+                                                <img src="<?= $image['url'] ?>" <?= $image['description'] ?> width="85" height="75" <?= $image['url'] ?>>
 
                                             </div>
                                             <!-- /expertise__pic -->

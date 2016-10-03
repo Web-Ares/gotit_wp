@@ -6,3 +6,15 @@ Version: 1.0
 .wpcf7-response-output{
     display: none !important;
 }
+
+span.wpcf7-form-control-wrap {
+    width: 46% !important;
+}
+
+span.wpcf7-form-control-wrap.message {
+    position: absolute;
+    width: 100% !important;
+    height: 104%;
+    top: 0;
+    left: 0;
+}

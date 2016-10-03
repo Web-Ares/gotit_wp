@@ -36,8 +36,7 @@
                         </div>
 
 
-                        <p>We are conveniently located in
-                            both of your favorite cities:</p>
+                        <p><?php the_field('location_preview_text_in_footer') ?></p>
 
                         <!-- contacts__cities -->
                         <div class="contacts__cities">

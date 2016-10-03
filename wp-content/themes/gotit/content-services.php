@@ -37,7 +37,7 @@ if(!is_null($services)): ?>
                                                     <!-- expertise__pic -->
                                                     <div class="expertise__pic">
 
-                                                        <img src="<?= ($image['url'])? $image['url'] : $default_path ?>" width="70" height="66" alt="<?= $image['alt'] ?>" title="<?= $image['description'] ?>">
+                                                        <img src="<?= ($image['url'])? $image['url'] : $default_path ?>" alt="<?= $image['alt'] ?>" title="<?= $image['description'] ?>">
 
                                                     </div>
                                                     <!-- /expertise__pic -->

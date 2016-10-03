@@ -18,3 +18,11 @@ span.wpcf7-form-control-wrap.message {
     top: 0;
     left: 0;
 }
+
+span.wpcf7-not-valid-tip {
+    display: none !important;
+}
+
+.wpcf7-display-none {
+    display: none !important;
+}

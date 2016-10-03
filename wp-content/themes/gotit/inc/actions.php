@@ -64,8 +64,11 @@ function add_js()
     wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
     wp_enqueue_script('swiper_js');
 
-    wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
-    wp_enqueue_script('main');
+    if(!is_page_template('page-contact.php')){
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
+
+    }
 
 
     if(is_page_template(array('page-home.php','page-team.php'))){
@@ -88,13 +91,27 @@ function add_js()
 
         wp_register_script('device',get_template_directory_uri().'/dist/js/vendors/device.min.js');
         wp_enqueue_script('device');
+
+        wp_register_script('index',get_template_directory_uri().'/dist/js/index.min.js');
+        wp_enqueue_script('index');
     }
 
     if(is_singular('service')){
         wp_enqueue_style('service', get_template_directory_uri().'/dist/css/services-uxui.css');
     }
 
-    if(is_page_template(array('page-home.php','page-contact.php')) || is_singular('service')){
+    if(is_singular('case')){
+        wp_enqueue_style('case', get_template_directory_uri().'/dist/css/case-w.css');
+
+        wp_register_script('device',get_template_directory_uri().'/dist/js/phone.min.js');
+        wp_enqueue_script('device');
+
+
+        wp_register_script('phone',get_template_directory_uri().'/dist/js/vendors/device.min.js');
+        wp_enqueue_script('phone');
+    }
+
+    if(is_page_template(array('page-home.php','page-contact.php')) || is_singular('service') || is_singular('case')){
         wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
         wp_enqueue_script('google_cart');
     }
@@ -134,4 +151,7 @@ function my_login_logo(){
 }
 add_action('login_head', 'my_login_logo');
 
+
+
+add_image_size( 'singlepost-thumb', 220, 180); 
 ?>

@@ -95,8 +95,8 @@ $allServices = getServices();
         </div>
         <!-- /expertise -->
         
-            <?php get_template_part('content', 'service-inner'); ?>
-            <?php get_template_part('content', 'service-map'); ?>
+        <?php get_template_part('content', 'service-inner'); ?>
+        <?php get_template_part('content', 'service-map'); ?>
         
     </div>
     <!--/site__content-->

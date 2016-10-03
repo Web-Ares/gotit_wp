@@ -1,6 +1,4 @@
-<div class="slide__content">
-    <div class="slide__content-inner">
-        <div>
+
 
             <!-- contacts -->
             <div class="contacts">
@@ -18,7 +16,7 @@
                     <div class="contacts__info">
 
                         <h2 class="contacts__title">
-                            <?= ($slogan = get_field('slogan_in_contact_block_on_footer'))? $slogan : 'Make the Move,
+                            <?= ($slogan = get_field('slogan_in_contact_block_on_footer',5))? $slogan : 'Make the Move,
                             Upgrade your digital presence.' ; ?>
                         </h2>
                         <?php $phone = get_field('contact_phone',42) ?>
@@ -36,7 +34,7 @@
                         </div>
 
 
-                        <p><?php the_field('location_preview_text_in_footer') ?></p>
+                        <p><?php the_field('location_preview_text_in_footer',5) ?></p>
 
                         <!-- contacts__cities -->
                         <div class="contacts__cities">
@@ -58,6 +56,3 @@
             </div>
             <!-- /contacts -->
 
-        </div>
-    </div>
-</div>

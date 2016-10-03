@@ -11,6 +11,17 @@ function getServices(){
     return ($services)? $services : null;
 }
 
+function getCases(){
+
+    $cases = get_posts(array(
+        'post_type' => 'case',
+        'posts_per_page' => -1,
+        'post_status' => 'publish'
+    ));
+
+    return ($cases)? $cases : null;
+}
+
 function getTeammates( $home = -1){
     
     
@@ -67,11 +78,12 @@ function getAcfImages ($image){
     return $attr;
 }
 
-function getReviews(){
+function getReviews($ids){
+
     $reviews = get_posts(array(
         'post_type' => 'review',
-        'posts_per_page' => -1,
-        'post_status' => 'publish'
+        'post_status' => 'publish',
+        'post__in' => $ids
     ));
 
     return ($reviews)? $reviews : null;

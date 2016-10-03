@@ -72,9 +72,6 @@ class WPCF7_Mail {
 
 		if ( $use_html ) {
 			$headers .= "Content-Type: text/html\n";
-			$headers .= "X-WPCF7-Content-Type: text/html\n";
-		} else {
-			$headers .= "X-WPCF7-Content-Type: text/plain\n";
 		}
 
 		if ( $additional_headers ) {
@@ -168,45 +165,16 @@ function wpcf7_mail_replace_tags( $content, $args = '' ) {
 	return $content;
 }
 
-add_action( 'phpmailer_init', 'wpcf7_phpmailer_init' );
-
-function wpcf7_phpmailer_init( $phpmailer ) {
-	$wpcf7_content_type = false;
-
-	foreach ( (array) $phpmailer->getCustomHeaders() as $custom_header ) {
-		if ( 'X-WPCF7-Content-Type' == $custom_header[0] ) {
-			$wpcf7_content_type = trim( $custom_header[1] );
-			break;
-		}
-	}
-
-	if ( 'text/html' == $wpcf7_content_type ) {
-		$phpmailer->msgHTML( $phpmailer->Body );
-	}
-}
-
 class WPCF7_MailTaggedText {
 
 	private $html = false;
-	private $callback = null;
 	private $content = '';
 	private $replaced_tags = array();
 
 	public function __construct( $content, $args = '' ) {
-		$args = wp_parse_args( $args, array(
-			'html' => false,
-			'callback' => null ) );
+		$args = wp_parse_args( $args, array( 'html' => false ) );
 
 		$this->html = (bool) $args['html'];
-
-		if ( null !== $args['callback'] && is_callable( $args['callback'] ) ) {
-			$this->callback = $args['callback'];
-		} elseif ( $this->html ) {
-			$this->callback = array( $this, 'replace_tags_callback_html' );
-		} else {
-			$this->callback = array( $this, 'replace_tags_callback' );
-		}
-
 		$this->content = $content;
 	}
 
@@ -220,7 +188,13 @@ class WPCF7_MailTaggedText {
 			. '((?:[\t ]+"[^"]*"|[\t ]+\'[^\']*\')*)' // [3] = values
 			. '[\t ]*\](\]?)/';
 
-		return preg_replace_callback( $regex, $this->callback, $this->content );
+		if ( $this->html ) {
+			$callback = array( $this, 'replace_tags_callback_html' );
+		} else {
+			$callback = array( $this, 'replace_tags_callback' );
+		}
+
+		return preg_replace_callback( $regex, $callback, $this->content );
 	}
 
 	private function replace_tags_callback_html( $matches ) {

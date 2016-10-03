@@ -67,20 +67,7 @@ function wpcf7_save_contact_form( $post_id = -1 ) {
 	}
 
 	if ( isset( $_POST['wpcf7-mail-additional-headers'] ) ) {
-		$headers = '';
-		$tempheaders = str_replace(
-			"\r\n", "\n", $_POST['wpcf7-mail-additional-headers'] );
-		$tempheaders = explode( "\n", $tempheaders );
-
-		foreach ( $tempheaders as $header ) {
-			$header = trim( $header );
-
-			if ( '' !== $header ) {
-				$headers .= $header . "\n";
-			}
-		}
-
-		$mail['additional_headers'] = trim( $headers );
+		$mail['additional_headers'] = trim( $_POST['wpcf7-mail-additional-headers'] );
 	}
 
 	if ( isset( $_POST['wpcf7-mail-attachments'] ) ) {
@@ -113,20 +100,8 @@ function wpcf7_save_contact_form( $post_id = -1 ) {
 	}
 
 	if ( isset( $_POST['wpcf7-mail-2-additional-headers'] ) ) {
-		$headers = '';
-		$tempheaders = str_replace(
-			"\r\n", "\n", $_POST['wpcf7-mail-2-additional-headers'] );
-		$tempheaders = explode( "\n", $tempheaders );
-
-		foreach ( $tempheaders as $header ) {
-			$header = trim( $header );
-
-			if ( '' !== $header ) {
-				$headers .= $header . "\n";
-			}
-		}
-
-		$mail_2['additional_headers'] = trim( $headers );
+		$mail_2['additional_headers'] = trim(
+			$_POST['wpcf7-mail-2-additional-headers'] );
 	}
 
 	if ( isset( $_POST['wpcf7-mail-2-attachments'] ) ) {
@@ -155,12 +130,5 @@ function wpcf7_save_contact_form( $post_id = -1 ) {
 
 	do_action( 'wpcf7_save_contact_form', $contact_form );
 
-	$post_id = $contact_form->save();
-
-	if ( wpcf7_validate_configuration() ) {
-		$config_validator = new WPCF7_ConfigValidator( $contact_form );
-		$config_validator->validate();
-	}
-
-	return $post_id;
+	return $contact_form->save();
 }

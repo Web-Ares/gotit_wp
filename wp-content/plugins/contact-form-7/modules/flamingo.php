@@ -12,8 +12,7 @@ function wpcf7_flamingo_submit( $contactform, $result ) {
 		return;
 	}
 
-	if ( $contactform->in_demo_mode()
-	|| $contactform->is_true( 'do_not_store' ) ) {
+	if ( $contactform->in_demo_mode() ) {
 		return;
 	}
 

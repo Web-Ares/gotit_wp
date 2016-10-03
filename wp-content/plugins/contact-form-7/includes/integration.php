@@ -81,7 +81,7 @@ class WPCF7_Integration {
 ?>
 <div class="card<?php echo $service->is_active() ? ' active' : ''; ?>" id="<?php echo esc_attr( $name ); ?>">
 <?php $service->icon(); ?>
-<h2 class="title"><?php echo esc_html( $service->get_title() ); ?></h2>
+<h3 class="title"><?php echo esc_html( $service->get_title() ); ?></h3>
 <div class="infobox">
 <?php echo esc_html( implode( ', ', $cats ) ); ?>
 <br />

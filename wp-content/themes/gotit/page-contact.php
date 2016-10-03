@@ -8,7 +8,7 @@ get_header(); ?>
     <div>
 
         <h2 class="site__main-title">
-            <?php the_title(); ?>
+            <?= ($title=get_field('text_on_background'))? $title : get_the_title(); ?>
         </h2>
 
         <!-- contacts -->

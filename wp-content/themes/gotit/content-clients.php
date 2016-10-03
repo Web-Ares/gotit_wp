@@ -27,8 +27,12 @@
                                                <!-- our-clients__logo -->
                                                <a href="<?php the_sub_field('links_to_the_clients_resources') ?>" class="our-clients__logo">
 
-                                                   <img src="<?= $image['url'] ?>" width="125" height="68" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+                                                   <?php $image_w = get_sub_field('choose_the_logos_of_clients');
+                                                   if($image_w):
+                                                   ?>
 
+                                                   <img src="<?= $image['url'] ?>" width="<?= $image_w['width']/2 ?>" height="<?= $image_w['height']/2 ?>" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+                                                <?php endif; ?>
                                                </a>
                                                <!-- /our-clients__logo -->
 

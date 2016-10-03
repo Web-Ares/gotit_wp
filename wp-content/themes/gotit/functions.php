@@ -6,13 +6,13 @@ define( 'TEMPLATEURI', get_template_directory_uri() );
 define( 'DIRECT', TEMPLATEURI.'/dist/' );
 show_admin_bar( false );
 
-define('DISALLOW_FILE_MODS',false);
+define('DISALLOW_FILE_MODS',true);
 
 function remove_menus(){
 
     remove_menu_page( 'edit-comments.php' );
     remove_menu_page( 'edit.php' );
-//    remove_menu_page( 'plugins.php' );
+    remove_menu_page( 'plugins.php' );
     remove_menu_page( 'users.php' );
     remove_menu_page( 'tools.php' );
 }

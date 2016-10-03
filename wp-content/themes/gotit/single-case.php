@@ -7,70 +7,9 @@
     <!--case-->
     <div class="case">
 
-        <!-- main-slider -->
-        <div class="main-slider">
-
-            <!-- swiper-container -->
-            <div class="swiper-container">
-
-                <div class="swiper-wrapper">
-
-                    <!--swiper-slide-->
-                    <div class="swiper-slide">
-
-                        <!--main-slider__inner-pic-->
-                        <div class="main-slider__inner-pic"  style="background-image: url(<?= DIRECT ?>pic/case-w_pic.jpg);">
-
-                            <!--main-slider__text-->
-                            <div class="main-slider__text">
-                                <h2 class="site__title">VV Supremo</h2>
-                                <p>CORPORATE PORTAL</p>
-                            </div>
-                            <!--/main-slider__text-->
-
-                            <!--vegetables-->
-                            <div class="vegetables vegetable3 move3">
-                                <img src="<?= DIRECT ?>img/vegetable8.png" alt="vegetable">
-                            </div>
-                            <!--/vegetables-->
-
-                            <!--vegetables-->
-                            <div class="vegetables vegetable3 vegetable3_case move3">
-                                <img src="<?= DIRECT ?>img/vegetable7.png" alt="vegetable">
-                            </div>
-                            <!--/vegetables-->
-
-                            <!--vegetables-->
-                            <div class="vegetables vegetable4 vegetable4_case move4">
-                                <img src="<?= DIRECT ?>img/vegetable4.png" alt="vegetable">
-                            </div>
-                            <!--/vegetables-->
-
-                            <!--vegetables-->
-                            <div class="vegetables vegetable6 move5">
-                                <img src="<?= DIRECT ?>img/vegetable6.png" alt="vegetable">
-                            </div>
-                            <!--/vegetables-->
-
-                        </div>
-                        <!--/main-slider__inner-pic-->
-
-                    </div>
-                    <!--/swiper-slide-->
-
-                </div>
-
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-
-                <a href="#" class="main-slider__btn-down">down</a>
-
-            </div>
-            <!-- /swiper-container -->
-
-        </div>
-        <!-- /main-slider -->
-
+        
+        <?php get_template_part('content', 'slider-case'); ?>
+        
         <!--case__wrap-->
         <div class="case__wrap">
 

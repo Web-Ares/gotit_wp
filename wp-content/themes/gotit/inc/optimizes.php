@@ -22,6 +22,7 @@ function getCases(){
     return ($cases)? $cases : null;
 }
 
+
 function getTeammates( $home = -1){
     
     
@@ -87,4 +88,39 @@ function getReviews($ids){
     ));
 
     return ($reviews)? $reviews : null;
+}
+
+function getNextPrevLinks($id){
+
+   
+
+    $cases = get_posts(array(
+        'post_type' => 'case',
+        'posts_per_page' => -1,
+        'post_status' => 'publish'
+    ));
+    $count  =  count($cases);
+    $prev = -1;
+    $next = -1;
+    for( $i = 0; $i<$count; $i++){
+
+        if($cases[$i]->ID == $id){
+
+
+            $prev = $cases[$i-1]->ID;
+            $next = $cases[$i+1]->ID;
+
+            if($i == 0){
+                $prev = -1;
+            }
+            if($i == ($count-1)){
+                $next = -1;
+            }
+
+        }
+
+    }
+    $links['next']  = $next;
+    $links['prev'] = $prev;
+    return $links;
 }

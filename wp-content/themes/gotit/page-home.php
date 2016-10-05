@@ -16,6 +16,7 @@ get_header(); ?>
     <?php get_template_part('content', 'clients'); ?>
 
     <?php if(get_field('choose_the_reviews_for_slider_on_this_page')): ?>
+        
     <div class="slide__content">
         <div class="slide__content-inner">
             <div>
@@ -25,7 +26,9 @@ get_header(); ?>
             </div>
         </div>
     </div>
+        
     <?php endif; ?>
+    
     <div class="slide__content">
         <div class="slide__content-inner">
             <div>
@@ -35,6 +38,7 @@ get_header(); ?>
             </div>
         </div>
     </div>
+    
 </div>
 <!-- /site__index-page -->
 

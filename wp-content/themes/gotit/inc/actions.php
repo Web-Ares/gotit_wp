@@ -107,8 +107,8 @@ function add_js()
         wp_enqueue_script('device');
 
 
-        wp_register_script('phone',get_template_directory_uri().'/dist/js/vendors/device.min.js');
-        wp_enqueue_script('phone');
+        wp_register_script('case_js',get_template_directory_uri().'/dist/js/case.min.js');
+        wp_enqueue_script('case_js');
     }
 
     if(is_page_template(array('page-home.php','page-contact.php')) || is_singular('service') || is_singular('case')){

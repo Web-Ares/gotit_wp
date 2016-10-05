@@ -6,7 +6,6 @@
 
     <!--case-->
     <div class="case">
-
         
         <?php get_template_part('content', 'slider-case'); ?>
         
@@ -184,7 +183,7 @@
 
         </div>
         <!--/case__wrap-->
-
+      
         <?php get_template_part('content', 'reviews'); ?>
 
         <?php get_template_part('content', 'home-map'); ?>

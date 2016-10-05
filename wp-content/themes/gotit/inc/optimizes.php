@@ -22,7 +22,6 @@ function getCases(){
     return ($cases)? $cases : null;
 }
 
-
 function getTeammates( $home = -1){
     
     
@@ -84,8 +83,10 @@ function getReviews($ids){
     $reviews = get_posts(array(
         'post_type' => 'review',
         'post_status' => 'publish',
-        'post__in' => $ids
+        'post__in' => $ids,
+        'orderby'	=> 'post__in'
     ));
+
 
     return ($reviews)? $reviews : null;
 }
@@ -124,3 +125,21 @@ function getNextPrevLinks($id){
     $links['prev'] = $prev;
     return $links;
 }
+
+function getSocialLinks($id){
+    $links = array();
+
+    $permalink = get_the_permalink($id);
+    $title = str_replace( ' ', '%20', get_the_title());
+    $excerpt = str_replace( ' ', '%20', get_the_excerpt());
+    
+    
+    $links['facebook'] = 'https://www.facebook.com/sharer/sharer.php?u='.$permalink.'&amp';
+    $links['twitter'] = 'https://twitter.com/intent/tweet?text='.$title.'&amp;url='.$permalink.'&amp;';
+    $links['google'] = 'https://plus.google.com/share?url='.$permalink;
+    $links['in'] = 'https://www.linkedin.com/shareArticle?mini=true&url='.$permalink.'&title='.$title.'&summary='.$excerpt.'';
+
+    
+    return $links;
+}
+

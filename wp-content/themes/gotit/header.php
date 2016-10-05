@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" <?= (is_front_page()) ? 'class="index-page"' : '' ; ?>>
 <head>
     <meta charset="UTF-8">
     <meta name="robots" content="noindex, nofollow">

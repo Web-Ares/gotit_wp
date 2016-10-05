@@ -3,18 +3,18 @@
             <!-- contacts -->
             <div class="contacts">
 
+                <!-- contacts__map -->
+                <div class="contacts__map">
+                    <div class="contacts__map-google" id="contact-google-map" data-map-lat="40.71146768253324" data-map-lng="-73.97688591796877" data-map-zoom="9"></div>
+                </div>
+                <!-- /contacts__map -->
+
                 <!-- contacts__inner -->
                 <div class="contacts__inner">
 
-                    <!-- contacts__map -->
-                    <div class="contacts__map">
-                        <div class="contacts__map-google" id="contact-google-map" data-map-lat="40.71146768253324" data-map-lng="-73.97688591796877" data-map-zoom="9"></div>
-                    </div>
-                    <!-- /contacts__map -->
-
                     <!-- contacts__info -->
                     <div class="contacts__info">
-
+                        <div>
                         <h2 class="contacts__title">
                             <?= ($slogan = get_field('slogan_in_contact_block_on_footer',5))? $slogan : 'Make the Move,
                             Upgrade your digital presence.' ; ?>
@@ -28,12 +28,13 @@
                                 <a href="<?= get_the_permalink(42) ?>" class="btn btn_2">CONTACT PAGE</a>
                             </div>
                         </div>
+                        </div>
 
                         <div class="contacts__pulse">
                             <div class="contacts__pulse1"></div>
                         </div>
 
-
+                        <div>
                         <p><?php the_field('location_preview_text_in_footer',5) ?></p>
 
                         <!-- contacts__cities -->
@@ -46,7 +47,7 @@
                             </a>
                         </div>
                         <!-- /contacts__cities -->
-
+                        </div>
                     </div>
                     <!-- /contacts__info -->
 

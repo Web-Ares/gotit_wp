@@ -14,6 +14,12 @@ get_header(); ?>
         <!-- contacts -->
         <div class="contacts contacts_2">
 
+            <!-- contacts__map -->
+            <div class="contacts__map">
+                <div class="contacts__map-google" id="contact-google-map" data-map-lat="<?= $cities[$currentCity][0] ?>" data-map-lng="<?= $cities[$currentCity][1] ?>" data-map-zoom="8"></div>
+            </div>
+            <!-- /contacts__map -->
+            
             <!-- contacts__inner -->
             <div class="contacts__inner">
 
@@ -26,11 +32,7 @@ get_header(); ?>
                 $currentCity = rand(0,1);
 
                 ?>
-                <!-- contacts__map -->
-                <div class="contacts__map">
-                    <div class="contacts__map-google" id="contact-google-map" data-map-lat="<?= $cities[$currentCity][0] ?>" data-map-lng="<?= $cities[$currentCity][1] ?>" data-map-zoom="8"></div>
-                </div>
-                <!-- /contacts__map --
+               
 
                 <!-- contacts__info -->
                 <div class="contacts__info">

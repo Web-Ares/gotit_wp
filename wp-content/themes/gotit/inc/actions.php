@@ -64,7 +64,7 @@ function add_js()
     wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
     wp_enqueue_script('swiper_js');
 
-    if(!is_page_template('page-contact.php')){
+    if(!is_page_template('page-contact.php') && !is_singular('case')){
         wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
         wp_enqueue_script('main');
 
@@ -103,9 +103,8 @@ function add_js()
     if(is_singular('case')){
         wp_enqueue_style('case', get_template_directory_uri().'/dist/css/case-w.css');
 
-        wp_register_script('device',get_template_directory_uri().'/dist/js/phone.min.js');
+        wp_register_script('device',get_template_directory_uri().'/dist/js/vendors/device.min.js');
         wp_enqueue_script('device');
-
 
         wp_register_script('case_js',get_template_directory_uri().'/dist/js/case.min.js');
         wp_enqueue_script('case_js');
@@ -122,6 +121,18 @@ function add_js()
         wp_enqueue_style('contact', get_template_directory_uri().'/dist/css/contact-us-page.css');
         wp_register_script('contact_js',get_template_directory_uri().'/dist/js/contacts.min.js');
         wp_enqueue_script('contact_js');
+    }
+
+    if(is_page_template('page-blog.php') || is_singular('post')){
+
+        wp_enqueue_style('case', get_template_directory_uri().'/dist/css/case-w.css');
+
+        wp_register_script('device',get_template_directory_uri().'/dist/js/phone.min.js');
+        wp_enqueue_script('device');
+
+
+        wp_register_script('case_js',get_template_directory_uri().'/dist/js/case.min.js');
+        wp_enqueue_script('case_js');
     }
 
 }

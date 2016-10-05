@@ -6,9 +6,9 @@
 
     <!--case-->
     <div class="case">
-        
+
         <?php get_template_part('content', 'slider-case'); ?>
-        
+
         <!--case__wrap-->
         <div class="case__wrap">
 
@@ -28,9 +28,61 @@
                                 </div>
                                 <!--/case__inner-->
 
-                            <?php  elseif($get_choose_type=='laptop'):
+                            <?php  
+                            elseif($get_choose_type=='text_image'):
+                                $textPosition = get_sub_field('choose_the_position_of_text');
+                                ?>
+                                <?php
+                                if($textPosition=='left'):
+                                $class = 'alignright';
+                                else:
+                                    $class = 'alignleft';
+                                endif;
+
+                                $mainImage = get_sub_field('choose_the_image');
+                                $imageID = $mainImage['ID'];
+                                $alt = get_post_meta($imageID , '_wp_attachment_image_alt', true);
+                                $description = $mainImage['description'];
+                                $url = $mainImage['url'];
+
+                                $attachedImages = get_sub_field('choose_the_image_under_the_text');
+                                if($attachedImages){
+                                    $rt = $attachedImages['ID'];
+                                    $attachedImagesAlt = get_post_meta( $rt , '_wp_attachment_image_alt', true);
+                                }
+
+                                ?>
+
+                                        <!--case__sliders-->
+                                        <div class="case__content">
+                                            <?php if($mainImage): ?>
+                                                <img src="<?= $url ?>"  class="<?= $class ?>" width="<?= $mainImage['width'] ?>" height="<?= $mainImage['height'] ?>" title="<?= $description ?>" alt="<?= $alt ?>">
+                                            <?php endif; ?>
+                                            <!--case__sliders-text-->
+                                            <div class="case__content-text">
+
+                                                <?php the_sub_field('fill_the_text') ?>
+
+                                            </div>
+                                            <!--/case__sliders-text-->
+
+
+                                            <?php if($attachedImages): ?>
+                                            <!--case__content-icons-->
+                                            <div class="case__content-icons">
+                                                <img src="<?= $attachedImages['url'] ?>"  width="<?= $attachedImages['width'] ?>" height="<?= $attachedImages['height'] ?>" title="<?= $attachedImages['description'] ?>" alt="<?= $attachedImagesAlt ?>">
+                                            </div>
+                                                <!--/case__content-icons-->
+                                            <?php endif; ?>
+
+                                        </div>
+                                        <!--/case__sliders-->
+
+                            <?php
+
+                        elseif($get_choose_type=='laptop'):
                                 if($image = get_sub_field('laptop_block')):
-                                    
+
                                     $imageID = $image['ID'];
                                     $alt = get_post_meta($imageID , '_wp_attachment_image_alt', true);
                                     $description = $image['description'];
@@ -57,9 +109,9 @@
                                           <?php   while ( have_rows('two_columns_block') ) : the_row(); ?>
 
                                                     <?php get_template_part('content', 'row-block'); ?>
-                                                
+
                                                 <?php
-                                
+
                                             endwhile; ?>
 
                                     </div>
@@ -72,7 +124,7 @@
                                     <div class="case__sliders-row">
 
                                     <?php   while ( have_rows('second_column_block') ) : the_row(); ?>
-                                        
+
                                             <?php get_template_part('content', 'row-block'); ?>
 
                                         <?php
@@ -170,7 +222,7 @@
 
                                     </div>
                                     <!--/phone-->
-                                    
+
                                    <?php  $showed = true;
                                 } else {
                                     continue;
@@ -183,7 +235,7 @@
 
         </div>
         <!--/case__wrap-->
-      
+
         <?php get_template_part('content', 'reviews'); ?>
 
         <?php get_template_part('content', 'home-map'); ?>

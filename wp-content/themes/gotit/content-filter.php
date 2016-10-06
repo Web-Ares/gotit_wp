@@ -205,15 +205,16 @@
 
             <div class="swiper-slide main-slider_pure">
 
-                <h2 class="site__main-title">
-                    PURENNATURA
-                </h2>
-
+                
                 <!-- main-slider__content -->
                 <div class="main-slider__content main-slider__content_pure">
                     <div>
 
                         <div class="main-slider__inner-items">
+
+                            <h2 class="site__main-title">
+                                PURENNATURA
+                            </h2>
 
                             <!--bubbles-->
                             <div class="bubbles">
@@ -223,6 +224,9 @@
 
                             <div class="main-slider__woman"></div>
 
+                            <!--main-slider__hero-content-->
+                            <div class="main-slider__hero-content">
+                            
                             <!--case__hero-text-->
                             <div class="main-slider__text">
                                 <h2 class="site__title">Pure&Natural</h2>
@@ -231,6 +235,7 @@
                             <!--/case__hero-text-->
 
 
+                            
                             <h3 class="main-slider__pure-slogan">
 
                                 <span>YOU ARE</span>
@@ -240,8 +245,8 @@
 
                             </h3>
 
-                            <a href="#" class="btn">LEARN MORE</a>
-
+                            <a href="<?= $currentPermalimk ?>" class="btn">LEARN MORE</a>
+                        </div>
                         </div>
 
                     </div>

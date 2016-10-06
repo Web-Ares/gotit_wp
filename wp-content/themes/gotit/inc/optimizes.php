@@ -112,10 +112,10 @@ function getNextPrevLinks($id){
             $next = $cases[$i+1]->ID;
 
             if($i == 0){
-                $prev = -1;
+                $prev = $cases[$count-1]->ID;
             }
             if($i == ($count-1)){
-                $next = -1;
+                $next = $cases[0]->ID;
             }
 
         }

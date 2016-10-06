@@ -10,7 +10,15 @@ get_header(); ?>
         <h2 class="site__main-title">
             <?= ($title=get_field('text_on_background'))? $title : get_the_title(); ?>
         </h2>
+        <?php
+        $cities[0][0] = '40.71146768253324';
+        $cities[0][1] = '-73.97688591796877';
+        $cities[1][0] = '41.834052176036444';
+        $cities[1][1] = '-87.73191400000002';
 
+        $currentCity = rand(0,1);
+
+        ?>
         <!-- contacts -->
         <div class="contacts contacts_2">
 
@@ -23,15 +31,7 @@ get_header(); ?>
             <!-- contacts__inner -->
             <div class="contacts__inner">
 
-                <?php
-                $cities[0][0] = '40.71146768253324';
-                $cities[0][1] = '-73.97688591796877';
-                $cities[1][0] = '41.834052176036444';
-                $cities[1][1] = '-87.73191400000002';
 
-                $currentCity = rand(0,1);
-
-                ?>
                
 
                 <!-- contacts__info -->

@@ -257,7 +257,7 @@ $id = get_the_ID();
                 <!--/case__links-->
 
                 <!--vegetables-->
-                <div class="vegetables move move3" data-views='[
+                <div class="vegetables move move3 not_move" data-views='[
                                                                                                     {
                                                                                                     "url":"<?= DIRECT ?>img/case-pure-devices-mob.png",
                                                                                                     "positions":
@@ -293,7 +293,7 @@ $id = get_the_ID();
                 <!--vegetables-->
 
                 <!--vegetables-->
-                <div class="vegetables move move3" data-views='[
+                <div class="vegetables move move3 not_move" data-views='[
                                                                                                     {
                                                                                                     "url":"<?= DIRECT ?>pic/case-pure-pic2.png",
                                                                                                     "positions":

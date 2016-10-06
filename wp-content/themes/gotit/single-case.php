@@ -228,7 +228,100 @@
                                     continue;
                                 }
                                 ?>
-                            <?php  endif;  ?>
+                            <?php
+
+                            elseif($get_choose_type=='animated_technique'): ?>
+                                <!--case__sliders-->
+                                <div class="case__content case__content_center">
+
+                                    <!--case__sliders-text-->
+                                    <div class="case__content-text">
+
+                                        <?php the_sub_field('text_before_the_animated_block') ?>
+
+                                    </div>
+                                    <!--/case__sliders-text-->
+
+                                </div>
+                                <!--/case__sliders-->
+
+                                <!--featured-products-->
+                                <div class="featured-products">
+
+                                    <div class="featured-products__disk"></div>
+                                    <div class="featured-products__inner">
+
+                                        <!-- featured-products__items -->
+                                        <div class="featured-products__items">
+
+                                            <!-- swiper-container -->
+                                            <div class="swiper-container">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide swiper-slide_animated" data-start="90" data-finish="180">
+
+                                                        <!-- featured-products__item -->
+                                                        <div class="featured-products__item">
+
+                                                            <!-- featured-products__pic -->
+                                                            <div class="featured-products__pic">
+
+                                                                <img src="<?= DIRECT ?>pic/product1.png" width="335" height="353" alt="">
+
+                                                            </div>
+                                                            <!-- /featured-products__pic -->
+
+                                                        </div>
+                                                        <!-- /featured-products__item -->
+
+                                                    </div>
+                                                    <div class="swiper-slide">
+
+                                                        <!-- featured-products__item -->
+                                                        <div class="featured-products__item">
+
+                                                            <!-- featured-products__pic -->
+                                                            <div class="featured-products__pic">
+
+                                                                <img src="<?= DIRECT ?>pic/product2.png" width="234" height="378" alt="">
+
+                                                            </div>
+                                                            <!-- /featured-products__pic -->
+
+                                                        </div>
+                                                        <!-- /featured-products__item -->
+
+                                                    </div>
+                                                    <div class="swiper-slide swiper-slide_animated"  data-start="270" data-finish="360">
+
+                                                        <!-- featured-products__item -->
+                                                        <div class="featured-products__item">
+
+                                                            <!-- featured-products__pic -->
+                                                            <div class="featured-products__pic">
+
+                                                                <img src="<?= DIRECT ?>pic/product3.png" width="404" height="486" alt="">
+
+                                                            </div>
+                                                            <!-- /featured-products__pic -->
+
+                                                        </div>
+                                                        <!-- /featured-products__item -->
+
+                                                    </div>
+                                                </div>
+                                                <!-- Add Arrows -->
+                                                <div class="swiper-button-next"></div>
+                                                <div class="swiper-button-prev"></div>
+                                            </div>
+
+                                        </div>
+                                        <!-- /featured-products__items -->
+
+                                    </div>
+
+                                </div>
+                                <!--/featured-products-->
+                          <?php   endif;  ?>
 
             <?php endwhile;
             endif; ?>

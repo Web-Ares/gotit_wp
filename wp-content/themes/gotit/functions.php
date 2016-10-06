@@ -95,17 +95,7 @@ function wb_paginate_links( $args = '' ) {
     $r = '';
     $page_links = array();
     $dots = false;
-    if ( $args['prev_next'] && $current && ( $current < $total || -1 == $total ) ) :
-        $link = str_replace( '%_%', $args['format'], $args['base'] );
-        $link = str_replace( '%#%', $current + 1, $link );
-        if ( $add_args )
-            $link = add_query_arg( $add_args, $link );
-        $link .= $args['add_fragment'];
 
-        /** This filter is documented in wp-includes/general-template.php */
-        $page_links[] = '<a class="pagination__prev page-numbers disabled">' . $args['prev_text'] . '</a>';
-        $page_links[] = '<a class="pagination__next page-numbers" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['next_text'] . '</a>';
-    endif;
     if ( $args['prev_next'] && $current && 1 < $current ) :
         $link = str_replace( '%_%', 2 == $current ? '' : $args['format'], $args['base'] );
         $link = str_replace( '%#%', $current - 1, $link );
@@ -120,8 +110,10 @@ function wb_paginate_links( $args = '' ) {
          *
          * @param string $link The paginated link URL.
          */
-        $page_links[] = '<a class="pagination__prev page-numbers" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['prev_text'] . '</a>';
-        $page_links[] = '<a class="pagination__next page-numbers disabled">' . $args['next_text'] . '</a>';
+        $page_links[] = '<a class="pagination__item-prev" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['prev_text'] . '</a>';
+
+    else:
+        $page_links[] = '<span class="pagination__item-prev disabled"></span>';
     endif;
 
     for ( $n = 1; $n <= $total; $n++ ) :
@@ -151,6 +143,18 @@ function wb_paginate_links( $args = '' ) {
         endif;
 
     endfor;
+    if ( $args['prev_next'] && $current && ( $current < $total || -1 == $total ) ) :
+        $link = str_replace( '%_%', $args['format'], $args['base'] );
+        $link = str_replace( '%#%', $current + 1, $link );
+        if ( $add_args )
+            $link = add_query_arg( $add_args, $link );
+        $link .= $args['add_fragment'];
+
+        /** This filter is documented in wp-includes/general-template.php */
+        $page_links[] = '<a class="pagination__item-next" href="' . esc_url( apply_filters( 'paginate_links', $link ) ) . '">' . $args['next_text'] . '</a>';
+    else:
+        $page_links[] = '<span class="pagination__item-next disabled"></span>';
+    endif;
     $page_links[]='';
     switch ( $args['type'] ) {
         case 'array' :
@@ -178,16 +182,16 @@ function theme_pagination() {
     $a['current'] = $current;
 
     $total = 1;
-    $a['mid_size'] = 3;
+    $a['mid_size'] = 2;
     $a['end_size'] = 1;
     $a['prev_text'] = '';
     $a['next_text'] = '';
     $a['class'] = 'new';
 
-    if ($max > 1) echo '<div class="pagination">';
+    if ($max > 1) echo '<div class="pagination"><div>';
 
     echo $pages . wb_paginate_links($a);
-    if ($max > 1) echo '</div>';
+    if ($max > 1) echo '</div></div>';
 }
 
 

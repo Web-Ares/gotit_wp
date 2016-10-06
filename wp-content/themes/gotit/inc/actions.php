@@ -58,17 +58,17 @@ function add_js()
     wp_register_script('jquery',get_template_directory_uri().'/dist/js/vendors/jquery-2.2.1.min.js');
     wp_enqueue_script('jquery');
 
-    wp_enqueue_style('swiper_css', get_template_directory_uri().'/dist/css/swiper.min.css');
+    if(!is_page_template('page-blog.php')){
+
+        wp_enqueue_style('swiper_css', get_template_directory_uri().'/dist/css/swiper.min.css');
 
 
-    wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
-    wp_enqueue_script('swiper_js');
-
-    if(!is_page_template('page-contact.php') && !is_singular('case')){
-        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
-        wp_enqueue_script('main');
-
+        wp_register_script('swiper_js',get_template_directory_uri().'/dist/js/vendors/swiper.jquery.min.js');
+        wp_enqueue_script('swiper_js');
     }
+
+
+
 
 
     if(is_page_template(array('page-home.php','page-team.php'))){
@@ -110,7 +110,7 @@ function add_js()
         wp_enqueue_script('case_js');
     }
 
-    if(is_page_template(array('page-home.php','page-contact.php')) || is_singular('service') || is_singular('case')){
+    if(is_page_template(array('page-home.php','page-contact.php','page-blog.php')) || is_singular('service') || is_singular('case')){
         wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
         wp_enqueue_script('google_cart');
     }
@@ -125,14 +125,14 @@ function add_js()
 
     if(is_page_template('page-blog.php') || is_singular('post')){
 
-        wp_enqueue_style('case', get_template_directory_uri().'/dist/css/case-w.css');
+        wp_enqueue_style('blog', get_template_directory_uri().'/dist/css/blog-page.css');
+        
+    }
 
-        wp_register_script('device',get_template_directory_uri().'/dist/js/phone.min.js');
-        wp_enqueue_script('device');
+    if(!is_page_template('page-contact.php') && !is_singular('case')){
+        wp_register_script('main',get_template_directory_uri().'/dist/js/main.min.js');
+        wp_enqueue_script('main');
 
-
-        wp_register_script('case_js',get_template_directory_uri().'/dist/js/case.min.js');
-        wp_enqueue_script('case_js');
     }
 
 }
@@ -145,10 +145,10 @@ register_nav_menus( array(
     'menu' => 'menu'
 ) );
 
-//function mojFavicon() {
-//    echo '<link rel="Shortcut Icon" type="image/x-icon" href="'.TEMPLATEURI.'/faviconit/favicon.ico" />';
-//}
-//add_action( 'admin_head', 'mojFavicon' );
+function mojFavicon() {
+    echo '<link rel="Shortcut Icon" type="image/x-icon" href="'.TEMPLATEURI.'/dist/favicons/favicon.ico" />';
+}
+add_action( 'admin_head', 'mojFavicon' );
 
 
 function my_login_logo(){

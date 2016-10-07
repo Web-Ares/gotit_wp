@@ -92,7 +92,7 @@
                                 ?>
 
                                 <!--laptop-->
-                                <div class="laptop" style="background-image: url('<?= DIRECT ?>pic/laptop_pic.png')">
+                                <div class="laptop site__gradient" style="background-image: url('<?= DIRECT ?>pic/laptop_pic.png')">
 
                                     <img src="<?= $url ?>" alt="<?= $alt ?>" title="<?= $description ?>">
 

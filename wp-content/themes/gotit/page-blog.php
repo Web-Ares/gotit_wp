@@ -66,7 +66,7 @@ get_header(); ?>
                             <!-- blog__post-content -->
                             <div class="blog__post-content">
 
-                                <h2 class="blog__post-title"><?= $title ?></h2>
+                                <h2 class="blog__post-title"><a href="<?= $permalink ?>"><?= $title ?></a></h2>
                                 <p><?= $excerpt ?></p>
                                 <a href="<?= $permalink ?>" class="btn btn_7">read more</a>
 

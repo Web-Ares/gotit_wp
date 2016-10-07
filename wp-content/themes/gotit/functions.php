@@ -203,60 +203,72 @@ function get_post_single(){
 
     <?php if( have_rows('content_block',$post_id) ):
 
-        while ( have_rows('content_block',$post_id) ) : the_row();
+        while ( have_rows('content_block',$post_id) ) : the_row(); ?>
 
-            if(get_sub_field('choose_the_type_of_content_part')=='text'):
+            <?php if(get_sub_field('choose_the_type_of_content_part')=='text'){
 
-                the_sub_field('text_block');
+               $json_data.= get_sub_field('text_block');
 
-            elseif(get_sub_field('choose_the_type_of_content_part')=='dl'):  ?>
-
-                <?php $json_data.=''; ?>
-                <?php $json_data .='<div class="sevices__info">';    ?>
-               
-
-                <?php
-                if($title = get_sub_field('list_block_title')){
-
-                    $json_data.='<h4 class="sevices__info-title">'.$title.'</h4>';
-                 }
-                    
-                    ?>
-
-                <?php if( have_rows('list_type') ): ?>
-
-                    <?php $json_data.='<div class="sevices__info-list">'; ?>
-                    <?php   while ( have_rows('list_type') ) : the_row(); ?>
+            } elseif(get_sub_field('choose_the_type_of_content_part')=='dl'){ ?>
 
 
-                        <?php $json_data.='<dl class="sevices__info-item">'; ?>
+               <?php  $json_data.='<!--sevices__info-->
+                <div class="sevices__info">'; ?>
 
-                            <?php $json_data.='<dt>'.get_sub_field('title').'</dt>
-                            <dd>
-                                '.get_sub_field('description').'
-                            </dd>
+                    <?php if($title = get_sub_field('list_block_title')){
+                        $json_data.='<h4 class="sevices__info-title">'.$title.'</h4>';
+                     } ?>
 
-                        </dl>';
+                    <?php if( have_rows('list_type',$post_id) ): ?>
+
+                   <?php  $json_data.='<!--sevices__info-list-->
+                        <div class="sevices__info-list">'; ?>
+                            <?php   while ( have_rows('list_type',$post_id) ) : the_row(); ?>
+
+                        <?php $json_data.='<!--sevices__info-item-->
+                                <dl class="sevices__info-item">
+                               
+
+                                    <dt>
+                                        '.get_sub_field('title').'
+                                    </dt>
+                                    <dd>
+                                        '.get_sub_field('description').'
+                                    </dd>
+
+                                </dl>
+                                <!--/sevices__info-item-->';
 
 
-                    endwhile;
-                endif; ?>
-                <?php $json_data.='</div>'; ?>
-                <?php
-            endif; ?>
+                            endwhile; ?>
+
+                        <?php $json_data.='</div><!--/sevices__info-list-->'; ?>
+
+                    <?php  endif; ?>
+
+                    <?php if($question = get_field('discuss_question_for_service',$post_id)): ?>
+
+                    <?php $json_data.=' <!--sevices__info-title-->
+                        <h4 class="sevices__info-title">'.$question.'</h4>
+                        <!--/sevices__info-title-->'; ?>
 
 
+                    <?php endif; ?>
 
-        <?php endwhile;
+                <?php $json_data.='</div>
+                <!--/sevices__info-->'; ?>
+
+            <?php   } ?>
+
+
+            <?php
+
+        endwhile;
     endif; ?>
 
-    <?php if($question = get_field('discuss_question_for_service',$post_id)): ?>
+    <?php
 
-        <?php $json_data.='<h4 class="sevices__info-title">'.$question.'</h4>'; ?>
-        
-    <?php endif; ?>
-    
-    <?php echo $json_data;
+    echo $json_data;
     exit;
 }
 

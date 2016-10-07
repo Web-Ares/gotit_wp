@@ -159,7 +159,7 @@
                                                                                                                                             }
                                                                                                                                         },
                                                                                                                                         {
-                                                                                                                                        "url":"<?= DIRECT ?>img/vegetable5-desktop.png",
+                                                                                                                                        "url":"<?= DIRECT ?>img/vegetable5.png",
                                                                                                                                         "positions":
                                                                                                                                             {
                                                                                                                                             "top" : "200",
@@ -277,10 +277,10 @@
                                                                                                     "url":"<?php echo  DIRECT ?>img/case-pure-devices-desktop.png",
                                                                                                     "positions":
                                                                                                         {
-                                                                                                        "bottom" : "-100",
-                                                                                                        "left" : "50",
-                                                                                                        "width" : "385",
-                                                                                                        "height" : "713"
+                                                                                                             "bottom" : "-175",
+                                                                                                        "left" : "140",
+                                                                                                        "width" : "480",
+                                                                                                        "height" : "800"
                                                                                                         }
                                                                                                     }
                                                                                                 ]'>

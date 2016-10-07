@@ -35,8 +35,10 @@
                                 <?php
                                 if($textPosition=='left'):
                                 $class = 'alignright';
+                                    $classContent='';
                                 else:
                                     $class = 'alignleft';
+                                    $classContent = 'case__content_margin';
                                 endif;
 
                                 $mainImage = get_sub_field('choose_the_image');
@@ -54,7 +56,7 @@
                                 ?>
 
                                         <!--case__sliders-->
-                                        <div class="case__content">
+                                        <div class="case__content <?= $classContent ?>">
                                             <?php if($mainImage): ?>
                                                 <img src="<?= $url ?>"  class="<?= $class ?>" width="<?= $mainImage['width'] ?>" height="<?= $mainImage['height'] ?>" title="<?= $description ?>" alt="<?= $alt ?>">
                                             <?php endif; ?>

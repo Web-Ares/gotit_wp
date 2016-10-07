@@ -1,7 +1,7 @@
 <?php if($reviewsIds = get_field('choose_the_reviews_for_slider_on_this_page')): ?>
 
     <!-- reviews -->
-    <div class="reviews">
+    <div class="reviews <?= (is_singular('case'))?  'reviews_inner' : '' ; ?>">
         <div class="reviews__inner">
 
             <h2 class="site__title site__title_2"><?= ($title = get_field('reviews_title_block',5))? $title : 'And their reviews:';  ?></h2>

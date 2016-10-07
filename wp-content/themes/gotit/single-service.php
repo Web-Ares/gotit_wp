@@ -34,8 +34,10 @@ $allServices = getServices();
 
                             <?php foreach ($allServices as $post) {
 
+                                $postID = get_the_ID();
+                                
                                 switch ($idService){
-                                    case  (get_the_ID()) : $active = ' active'; $flag = true;
+                                    case  ($postID) : $active = ' active'; $flag = true;
                                         break;
                                     default :  $active = ''; $flag = false;
                                         break;
@@ -49,12 +51,12 @@ $allServices = getServices();
                                         <?php if(!$flag): ?>
 
                                         <!-- expertise__item -->
-                                        <a href="<?php the_permalink() ?>" class="expertise__item <?= $active ?>">
+                                        <a href="<?php the_permalink() ?>" data-id="<?= $postID ?>" class="expertise__item <?= $active ?>">
 
                                         <?php else:  ?>
 
                                         <!-- expertise__item -->
-                                        <span class="expertise__item <?= $active ?>">
+                                        <span data-id="<?= $postID ?>" class="expertise__item  <?= $active ?>">
 
                                         <?php endif;?>
 

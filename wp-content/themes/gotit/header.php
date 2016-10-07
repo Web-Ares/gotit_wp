@@ -157,10 +157,8 @@
     </style>
     
 </head>
-<body>
 
-
-
+<body data-action="<?php echo admin_url( 'admin-ajax.php' );?>">
 
 <!-- site -->
 <div class="site<?= (!is_front_page())? ' site_inner': '' ; ?>">

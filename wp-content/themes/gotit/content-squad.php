@@ -59,7 +59,7 @@ if($teammates):
                     </div>
                     <!-- /squad__items -->
 
-                    <a href="<?= get_the_permalink(63) ?>" class="btn"><span>LEARN MORE</span></a>
+                    <a href="<?= get_the_permalink(63) ?>" class="btn">LEARN MORE</a>
 
                 </div>
             </div>

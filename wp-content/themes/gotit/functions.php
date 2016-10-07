@@ -6,12 +6,12 @@ define( 'TEMPLATEURI', get_template_directory_uri() );
 define( 'DIRECT', TEMPLATEURI.'/dist/' );
 show_admin_bar( false );
 
-define('DISALLOW_FILE_MODS',true);
+//define('DISALLOW_FILE_MODS',true);
 
 function remove_menus(){
 
     remove_menu_page( 'edit-comments.php' );
-    remove_menu_page( 'plugins.php' );
+//    remove_menu_page( 'plugins.php' );
     remove_menu_page( 'users.php' );
     remove_menu_page( 'tools.php' );
 }
@@ -193,6 +193,76 @@ function theme_pagination() {
     echo $pages . wb_paginate_links($a);
     if ($max > 1) echo '</div></div>';
 }
+
+
+function get_post_single(){
+
+    $json_data='';
+    $post_id = $_GET['id']; ?>
+
+
+    <?php if( have_rows('content_block',$post_id) ):
+
+        while ( have_rows('content_block',$post_id) ) : the_row();
+
+            if(get_sub_field('choose_the_type_of_content_part')=='text'):
+
+                the_sub_field('text_block');
+
+            elseif(get_sub_field('choose_the_type_of_content_part')=='dl'):  ?>
+
+                <?php $json_data.=''; ?>
+                <?php $json_data .='<div class="sevices__info">';    ?>
+               
+
+                <?php
+                if($title = get_sub_field('list_block_title')){
+
+                    $json_data.='<h4 class="sevices__info-title">'.$title.'</h4>';
+                 }
+                    
+                    ?>
+
+                <?php if( have_rows('list_type') ): ?>
+
+                    <?php $json_data.='<div class="sevices__info-list">'; ?>
+                    <?php   while ( have_rows('list_type') ) : the_row(); ?>
+
+
+                        <?php $json_data.='<dl class="sevices__info-item">'; ?>
+
+                            <?php $json_data.='<dt>'.get_sub_field('title').'</dt>
+                            <dd>
+                                '.get_sub_field('description').'
+                            </dd>
+
+                        </dl>';
+
+
+                    endwhile;
+                endif; ?>
+                <?php $json_data.='</div>'; ?>
+                <?php
+            endif; ?>
+
+
+
+        <?php endwhile;
+    endif; ?>
+
+    <?php if($question = get_field('discuss_question_for_service',$post_id)): ?>
+
+        <?php $json_data.='<h4 class="sevices__info-title">'.$question.'</h4>'; ?>
+        
+    <?php endif; ?>
+    
+    <?php echo $json_data;
+    exit;
+}
+
+add_action('wp_ajax_get_post_single','get_post_single');
+
+add_action('wp_ajax_nopriv_get_post_single', 'get_post_single');
 
 
 // Load library files.

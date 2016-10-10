@@ -28,8 +28,14 @@
     <meta name="msapplication-config" content="<?php echo DIRECT ?>/favicons/browserconfig.xml">
     
     <title><?php wp_title(''); ?></title>
+
+    <?php
+        if(is_page_template('page-contact.php')){
+            gravity_form_enqueue_scripts( 1, true );
+        }
+    ?>
     <?php wp_head(); ?>
-    
+
     <?php if (is_page() || is_single() || is_singular() || is_404() || is_tax() || is_category() || is_tax() ) {
         the_post();
     } ?>

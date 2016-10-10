@@ -73,8 +73,10 @@ get_header(); ?>
                     <!-- contacts__form -->
                     <div class="contacts__form">
 
-                           <?= do_shortcode('[contact-form-7 id="119" title="Contact form"]') ?>
+<!--                           --><?//= do_shortcode('[contact-form-7 id="119" title="Contact form"]') ?>
 
+<!--                            --><?//= do_shortcode('[gravityform id=1  title=false ajax=true ]'); ?>
+                        <?php gravity_form(1, false, false, false, '', true, false); ?>
 
                         <!-- contacts__success -->
                         <div class="contacts__success">

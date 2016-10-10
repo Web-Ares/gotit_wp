@@ -58,7 +58,7 @@
                                         <!--case__sliders-->
                                         <div class="case__content <?= $classContent ?>">
                                             <?php if($mainImage): ?>
-                                                <img src="<?= $url ?>"  class="<?= $class ?>" width="<?= $mainImage['width'] ?>" height="<?= $mainImage['height'] ?>" title="<?= $description ?>" alt="<?= $alt ?>">
+                                                <img src="<?= $url ?>"  class="<?= $class ?>" width="<?= $mainImage['width']/2 ?>" height="<?= $mainImage['height']/2 ?>" title="<?= $description ?>" alt="<?= $alt ?>">
                                             <?php endif; ?>
                                             <!--case__sliders-text-->
                                             <div class="case__content-text">
@@ -72,7 +72,7 @@
                                             <?php if($attachedImages): ?>
                                             <!--case__content-icons-->
                                             <div class="case__content-icons">
-                                                <img src="<?= $attachedImages['url'] ?>"  width="<?= $attachedImages['width'] ?>" height="<?= $attachedImages['height'] ?>" title="<?= $attachedImages['description'] ?>" alt="<?= $attachedImagesAlt ?>">
+                                                <img src="<?= $attachedImages['url'] ?>"  width="<?= $attachedImages['width']/2 ?>" height="<?= $attachedImages['height']/2 ?>" title="<?= $attachedImages['description'] ?>" alt="<?= $attachedImagesAlt ?>">
                                             </div>
                                                 <!--/case__content-icons-->
                                             <?php endif; ?>

@@ -162,7 +162,51 @@ function my_login_logo(){
 }
 add_action('login_head', 'my_login_logo');
 
+add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
+function form_submit_button( $button, $form ) {
+    return "<button class='button' id='gform_submit_button_{$form['id']}'><span>Submit</span></button>";
+}
 
 
-add_image_size( 'singlepost-thumb', 220, 180); 
+add_image_size( 'singlepost-thumb', 220, 180);
+
+
+add_filter( 'gform_validation', 'custom_validation' );
+function custom_validation( $validation_result ) {
+    $form = $validation_result['form'];
+
+    //supposing we don't want input 1 to be a value of 86
+
+        // set the form validation to false
+        $validation_result['is_valid'] = false;
+    $flag = false;
+        //finding Field with ID of 1 and marking it as failed validation
+        foreach( $form['fields'] as $field ) {
+
+            //NOTE: replace 1 with the field you would like to validate
+
+            if($flag == false){
+                if($field->failed_validation == true){
+
+                    $flag = true;
+                    if($field->id==1){
+                        $field->validation_message = '1';
+                    } elseif($field->id==2){
+                        $field->validation_message = '2';
+                    } elseif($field->id==3){
+                        $field->validation_message = '3';
+                    }
+                }
+            } else{
+                $field->validation_message = '';
+            }
+        }
+
+
+
+    //Assign modified $form object back to the validation result
+    $validation_result['form'] = $form;
+    return $validation_result;
+
+}
 ?>

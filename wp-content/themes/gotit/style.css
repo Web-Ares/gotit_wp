@@ -26,3 +26,7 @@ span.wpcf7-not-valid-tip {
 .wpcf7-display-none {
     display: none !important;
 }
+
+.validation_error {
+    display: none !important;
+}

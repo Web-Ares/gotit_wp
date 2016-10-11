@@ -17,8 +17,8 @@ get_header(); ?>
         $cities[1][1] = '-87.73191400000002';
 
         $currentCity = rand(0,1);
+        $success = $_GET['success'];  ?>
 
-        ?>
         <!-- contacts -->
         <div class="contacts contacts_2">
 
@@ -69,15 +69,19 @@ get_header(); ?>
                         </address>
                     </div>
                     <!-- /contacts__addresses -->
-
+                    <?php
+                    if($success=='true'){
+                        $class='hidden';
+                    }
+                    else {
+                        $class= '';
+                    }?>
                     <!-- contacts__form -->
-                    <div class="contacts__form">
-
-<!--                           --><?//= do_shortcode('[contact-form-7 id="119" title="Contact form"]') ?>
-
-<!--                            --><?//= do_shortcode('[gravityform id=1  title=false ajax=true ]'); ?>
-                        <?php gravity_form(1, false, false, false, '', true, false); ?>
-
+                    <div class="contacts__form <?= $class ?>">
+                        <p class="contacts__form-title">You can also drop us a line:</p>
+                            <div>
+                                <?= do_shortcode('[gravityform id=1  title=false ]'); ?>
+                            </div>
                         <!-- contacts__success -->
                         <div class="contacts__success">
                             <p>Your message was sent successfully,
@@ -105,7 +109,6 @@ get_header(); ?>
 
         </div>
         <!-- /contacts -->
-
 
     </div>
 </div>

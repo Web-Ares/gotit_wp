@@ -164,7 +164,7 @@ add_action('login_head', 'my_login_logo');
 
 add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
 function form_submit_button( $button, $form ) {
-    return "<button class='button' id='gform_submit_button_{$form['id']}'><span>Submit</span></button>";
+    return "<button class='btn btn_4' id='gform_submit_button_{$form['id']}'><span>SEND MESSAGE</span></button>";
 }
 
 
@@ -177,8 +177,7 @@ function custom_validation( $validation_result ) {
 
     //supposing we don't want input 1 to be a value of 86
 
-        // set the form validation to false
-        $validation_result['is_valid'] = false;
+
     $flag = false;
         //finding Field with ID of 1 and marking it as failed validation
         foreach( $form['fields'] as $field ) {
@@ -190,11 +189,11 @@ function custom_validation( $validation_result ) {
 
                     $flag = true;
                     if($field->id==1){
-                        $field->validation_message = '1';
+                        $field->validation_message = 'PLEASE ADD YOUR NAME';
                     } elseif($field->id==2){
-                        $field->validation_message = '2';
+                        $field->validation_message = 'PLEASE ADD YOUR PHONE OR EMAIL';
                     } elseif($field->id==3){
-                        $field->validation_message = '3';
+                        $field->validation_message = 'PLEASE ADD YOUR MESSAGE';
                     }
                 }
             } else{
@@ -208,5 +207,13 @@ function custom_validation( $validation_result ) {
     $validation_result['form'] = $form;
     return $validation_result;
 
+}
+
+add_filter("gform_form_tag", "form_tag", 10, 2);
+
+function form_tag($form_tag, $form){
+    $getPermalink = get_permalink(42);
+    $form_tag = preg_replace("|action='(.*?)'|", "action=".$getPermalink."", $form_tag);
+    return $form_tag;
 }
 ?>

@@ -26,7 +26,8 @@
 
                            <?php
                             foreach ($reviews as $post) {
-                              
+
+                                $title_author = get_the_title();
 
                                 $image = getImagesAttributes('thumb',get_post_thumbnail_id());
 
@@ -44,7 +45,8 @@
                                                 <img src="<?= $image['url'] ?>" width="145" height="145" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
                                             </div>
                                                         <span>
-                                                            <?php the_field('the_author_name'); ?>
+                                                            <span><?php the_field('the_author_name'); ?></span>
+                                                            <?php the_field('the_author_job'); ?>
                                                         </span>
 
                                         </div>

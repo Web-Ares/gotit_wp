@@ -30,3 +30,6 @@ span.wpcf7-not-valid-tip {
 .validation_error {
     display: none !important;
 }
+body img.gform_ajax_spinner {
+    display: none!important;
+}

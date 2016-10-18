@@ -69,8 +69,6 @@ function add_js()
 
 
 
-
-
     if(is_page_template(array('page-home.php','page-team.php'))){
         wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');
     }
@@ -117,7 +115,7 @@ function add_js()
 
 
     if(is_page_template('page-contact.php')){
-       
+        gravity_form_enqueue_scripts(1,true);
         wp_enqueue_style('contact', get_template_directory_uri().'/dist/css/contact-us-page.css');
         wp_register_script('contact_js',get_template_directory_uri().'/dist/js/contacts.min.js');
         wp_enqueue_script('contact_js');
@@ -164,7 +162,7 @@ add_action('login_head', 'my_login_logo');
 
 add_filter( 'gform_submit_button', 'form_submit_button', 10, 2 );
 function form_submit_button( $button, $form ) {
-    return "<button class='btn btn_4' id='gform_submit_button_{$form['id']}'><span>SEND MESSAGE</span></button>";
+    return "<button type='submit' class='btn btn_4' id='gform_submit_button_{$form['id']}'><span>SEND MESSAGE</span></button>";
 }
 
 

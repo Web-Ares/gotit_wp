@@ -80,7 +80,7 @@ get_header(); ?>
                     <div class="contacts__form <?= $class ?>">
                         <p class="contacts__form-title">You can also drop us a line:</p>
                             <div>
-                                <?= do_shortcode('[gravityform id=1  title=false ]'); ?>
+                                <?= do_shortcode('[gravityform id=1  title=false ajax="true" ]'); ?>
                             </div>
                         <!-- contacts__success -->
                         <div class="contacts__success">

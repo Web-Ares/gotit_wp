@@ -28,8 +28,7 @@
                     <a href="<?= get_the_permalink(42) ?>" class="btn btn_services btn_3">CONTACT US NOW</a>
                     <?php $phone = get_field('contact_phone',42) ?>
                     <h2 class="contacts__title">
-                        <?= ($slogan = get_field('slogan_in_contact_block_on_footer',5))? $slogan : 'Make the Move,
-                            Upgrade your digital presence.' ; ?>
+                        <?= ($slogan = get_field('slogan_in_contact_block_on_footer'))? $slogan : $slogan ; ?>
                     </h2>
 
                     <div class="contacts__links">

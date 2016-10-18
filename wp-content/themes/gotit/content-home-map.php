@@ -16,8 +16,7 @@
                     <div class="contacts__info">
                         <div>
                         <h2 class="contacts__title">
-                            <?= ($slogan = get_field('slogan_in_contact_block_on_footer',5))? $slogan : 'Make the Move,
-                            Upgrade your digital presence.' ; ?>
+                            <?= ($slogan = get_field('slogan_in_contact_block_on_footer'))? $slogan : $slogan; ?>
                         </h2>
                         <?php $phone = get_field('contact_phone',42) ?>
                         <div class="contacts__links">

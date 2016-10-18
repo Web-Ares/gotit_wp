@@ -19,23 +19,44 @@
 
                                        <?php  while ( have_rows('our_clients') ) : the_row();
 
-                                           $image = getAcfImages(get_sub_field('choose_the_logos_of_clients'))
+                                           $image = getAcfImages(get_sub_field('choose_the_logos_of_clients'));
+
+                                           $links_to_client = get_sub_field('links_to_the_clients_resources');
                                            ?>
 
                                                 <div class="swiper-slide">
 
-                                               <!-- our-clients__logo -->
-                                               <a href="<?php the_sub_field('links_to_the_clients_resources') ?>" class="our-clients__logo">
+                                               <?php if($links_to_client){ ?>
 
-                                                   <?php $image_w = get_sub_field('choose_the_logos_of_clients');
-                                                   if($image_w):
-                                                   ?>
+                                                   <!-- our-clients__logo -->
+                                                   <a href="<?= $links_to_client ?>" class="our-clients__logo">
 
-                                                   <img src="<?= $image['url'] ?>" width="<?= $image_w['width']/2 ?>" height="<?= $image_w['height']/2 ?>" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
-                                                <?php endif; ?>
-                                               </a>
-                                               <!-- /our-clients__logo -->
+                                                       <?php $image_w = get_sub_field('choose_the_logos_of_clients');
+                                                       if($image_w):
+                                                           ?>
 
+                                                           <img src="<?= $image['url'] ?>" width="<?= $image_w['width']/2 ?>" height="<?= $image_w['height']/2 ?>" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+                                                       <?php endif; ?>
+                                                   </a>
+                                                   <!-- /our-clients__logo -->
+
+
+                                              <?php  } else { ?>
+
+                                                   <!-- our-clients__logo -->
+                                                   <span class="our-clients__logo">
+
+                                                       <?php $image_w = get_sub_field('choose_the_logos_of_clients');
+                                                       if($image_w):
+                                                           ?>
+
+                                                           <img src="<?= $image['url'] ?>" width="<?= $image_w['width']/2 ?>" height="<?= $image_w['height']/2 ?>" title="<?= $image['description'] ?>" alt="<?= $image['alt'] ?>">
+                                                       <?php endif; ?>
+                                                   </span>
+                                                   <!-- /our-clients__logo -->
+
+                                             <?php   } ?>
+                                                    
                                            </div>
 
                                             <?php

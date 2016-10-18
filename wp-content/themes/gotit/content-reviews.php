@@ -4,7 +4,13 @@
     <div class="reviews <?= (is_singular('case'))?  'reviews_inner site__gradient' : '' ; ?>">
         <div class="reviews__inner">
 
-            <h2 class="site__title site__title_2"><?= ($title = get_field('reviews_title_block',5))? $title : 'And their reviews:';  ?></h2>
+            <?php if(is_front_page()){
+                $title = get_field('reviews_title_block');
+            } elseif(is_singular('case')){
+                $title = get_field('title_for_reviews_block');
+            }?>
+
+            <h2 class="site__title site__title_2"><?= $title  ?></h2>
 
             <!-- reviews__items -->
             <div class="reviews__items">

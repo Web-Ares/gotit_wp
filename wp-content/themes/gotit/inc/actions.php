@@ -67,7 +67,7 @@ function add_js()
         wp_enqueue_script('swiper_js');
     }
 
-
+    
 
     if(is_page_template(array('page-home.php','page-team.php'))){
         wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');

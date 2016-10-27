@@ -11,6 +11,8 @@ get_header(); ?>
     
     <?php get_template_part('content', 'services'); ?>
 
+    <?php get_template_part('content', 'about-block'); ?>
+    
     <?php get_template_part('content', 'squad'); ?>
 
     <?php get_template_part('content', 'clients'); ?>

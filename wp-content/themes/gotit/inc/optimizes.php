@@ -34,15 +34,15 @@ function getTeammates( $home = -1){
     if($home!=-1){
 
         $sortTeam =array();
-
+        $count = 0;
         foreach ($teammates as $key => $post){
-
-
+            
             if(get_field('show_on_home_page',$post->ID)=='show'){
                 $sortTeam[] = $post;
+                $count++;
             }
 
-            if($key==($home-1)): break; endif;
+            if($count==($home)): break; endif;
         }
         $teammates = $sortTeam;
     }

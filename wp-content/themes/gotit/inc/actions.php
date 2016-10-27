@@ -67,9 +67,11 @@ function add_js()
         wp_enqueue_script('swiper_js');
     }
 
-    
+    if(is_page_template(array('page-team.php'))){
+        wp_enqueue_style('index', get_template_directory_uri().'/dist/css/team-page.css');
+    }
 
-    if(is_page_template(array('page-home.php','page-team.php'))){
+    if(is_page_template(array('page-home.php'))){
         wp_enqueue_style('index', get_template_directory_uri().'/dist/css/index.css');
     }
 
@@ -108,7 +110,7 @@ function add_js()
         wp_enqueue_script('case_js');
     }
 
-    if(is_page_template(array('page-home.php','page-contact.php','page-blog.php')) || is_singular('service') || is_singular('case')){
+    if(is_page_template(array('page-home.php','page-contact.php','page-blog.php','page-team.php')) || is_singular('service') || is_singular('case')){
         wp_register_script('google_cart','https://maps.googleapis.com/maps/api/js?key=AIzaSyAfHUKutvIv-r49HNCxnEzKJlZgfXzPqd4');
         wp_enqueue_script('google_cart');
     }

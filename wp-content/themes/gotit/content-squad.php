@@ -1,4 +1,5 @@
 <?php $teammates = getTeammates(3);
+
 if($teammates):
 ?>
     <div class="slide__content">
